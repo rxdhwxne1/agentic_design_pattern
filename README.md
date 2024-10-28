@@ -6,6 +6,7 @@ In this repository you will find my implementation of the agentic design pattern
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Contributing](#contributing)
 
 ## Introduction
 
