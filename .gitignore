@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+
+extraction_infos_pdf.xlsx
+
+venv/
+.env
+*.env
+
+.vscode/
+.idea/
+
+*.log
+.DS_Store
+*.swp
