@@ -24,14 +24,15 @@ class Calculator:
                             'description': 'mathematics expression'
                         }
                     },
-                },
-                'required': ['expression']
+                    'required': ['expression']
+                }
             }
         }
-    
+
+
 class WeatherChecker:
     def check_weather(self, city):
-        api = "https://wttr.in/%7B%7D?format=%C+%t+%w"
+        api = "https://wttr.in/{}?format=%C+%t+%w"
         response = requests.get(api.format(city))
         return response.text
 
@@ -44,24 +45,24 @@ class WeatherChecker:
                 'parameters': {
                     'type': 'object',
                     'properties': {
-                        'ville': {
+                        'city': {  # Changed from 'ville' to 'city' for consistency
                             'type': 'string',
                             'description': 'city name'
                         }
                     },
-                },
-                'required': ['ville']
+                    'required': ['city']
+                }
             }
         }
+
 
 class Translator:
     def translate(self, text, source_language, target_language):
         response = ollama.generate(
-                model="llama3.2",
-                prompt=f"Translate the text '{text}' from {source_language} to {target_language}"
-            )
-        return response
-
+            model="llama3.2",
+            prompt=f"Translate the text '{text}' from {source_language} to {target_language}"
+        )
+        return response.get("response")
 
     def json(self):
         return {
@@ -85,11 +86,12 @@ class Translator:
                             'description': 'target language'
                         }
                     },
-                },
-                'required': ['text', 'target_language']
+                    'required': ['text', 'source_language', 'target_language']
+                }
             }
         }
-        
+
+
 def tool_method_name(tool_name):
     if tool_name == "Calculator":
         return "calculate"
@@ -98,6 +100,7 @@ def tool_method_name(tool_name):
     if tool_name == "Translator":
         return "translate"
 
+
 class Agent:
     def __init__(self):
         self.tools = {
@@ -105,31 +108,29 @@ class Agent:
             "WeatherChecker": WeatherChecker(),
             "Translator": Translator()
         }
-    
+
     def process_request(self, user_input):
         response = ollama.chat(
-            model='llama3.2', 
-            messages=[{'role': 'user', 'content': user_input}], 
+            model='llama3.2',
+            messages=[{'role': 'user', 'content': user_input}],
             tools=[tool.json() for tool in self.tools.values()]
         )
 
         tool_call = response["message"].get("tool_calls")[0].get("function")
         if tool_call:
             tool_name = tool_call.get("name")
-            if tool_name == "Translator":
-                args = tool_call.get("arguments")
-            else:
-                args = tool_call.get("arguments").get("expression")
+            args = tool_call.get("arguments")
             tool_method = tool_method_name(tool_name)
-            # return args
-            total_response = self.use_tool(tool_name, tool_method, args)
-        return total_response
-    
-    def use_tool(self, tool_name, tool_method, *args):
+            total_response = self.use_tool(tool_name, tool_method, **args)  # Changed to unpack args
+            return total_response
+        return "No tool call found"
+
+    def use_tool(self, tool_name, tool_method, **kwargs):
         if tool_name in self.tools and hasattr(self.tools[tool_name], tool_method):
-            return getattr(self.tools[tool_name], tool_method)(*args)
+            return getattr(self.tools[tool_name], tool_method)(**kwargs)  # Changed to unpack kwargs
         return "Invalid tool or method"
-    
+
+
 agent = Agent()
 
 st.title("AI Assistant with Ollama and Tools")
