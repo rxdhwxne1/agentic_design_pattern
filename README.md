@@ -1,5 +1,6 @@
-# agentic_design_pattern
-In this repository, you will find my implementation of the agentic design patterns using Ollama.
+# Agentic Design Patterns Using Ollama
+
+This repository contains my implementation of agentic design patterns using Ollama, showcasing how these patterns enhance interactive systems and user experiences.
 
 ## Table of Contents
 
