@@ -77,7 +77,7 @@ This will start the Streamlit server and open the application in your web browse
 Contributions are welcome! Please open an issue or submit a pull request to propose changes.
 
 
-### Points à personnaliser :
-- Assurez-vous que les liens et les commandes correspondent à votre configuration.
-- Ajoutez des sections ou des détails supplémentaires si nécessaire, en fonction de votre projet et de votre audience.
-- Vérifiez que les noms de fichiers et de répertoires dans la section **Usage** sont corrects.
+Points to Customize:
+Ensure that the links and commands match your configuration.
+Add additional sections or details as needed, based on your project and audience.
+Verify that the file and directory names in the **Usage** section are correct.
