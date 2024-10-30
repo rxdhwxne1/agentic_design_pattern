@@ -47,7 +47,7 @@ git clone https://github.com/rxdhwxne1/agentic_design_pattern.git
 cd agentic_design_pattern
 ```
 
-## Create a virtual environment (optional):
+### Create a virtual environment (optional):
 
 ```bash
 python -m venv env
@@ -55,7 +55,7 @@ source env/bin/activate  # For macOS/Linux
 .\env\Scripts\activate   # For Windows
 ```
 
-## Install dependencies:
+### Install dependencies:
 
 ```bash
 pip install -r requirements.txt
