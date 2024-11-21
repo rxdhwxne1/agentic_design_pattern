@@ -81,18 +81,3 @@ if st.session_state.conversation_history:
         st.write(f"**Ollama :** {entry['response']}")
         if 'reflection' in entry:
             st.write(f"**Réflexion :** {entry['reflection']}")
-        
-
-text = '''L'apprentissage supervisé est une méthode de machine learning où un modèle est
-entraîné à partir d'exemples étiquetés. Le modèle reçoit des paires d'entrées et de
-sorties et apprend à associer les entrées avec les sorties correspondantes. Une fois
-l'entraînement terminé, le modèle peut être utilisé pour prédire les sorties des nouvelles
-entrées.'''
-
-q1 = '''selon ce texte comment fonctionne l'apprentissage supervisé ?'''
-
-q2 = '''comment l’utilisation des entrées et des sorties permet au modèle de faire des prédictions après l’entraînement ?'''
-
-q3 = '''Est-ce que toutes les étapes du processus sont bien couvertes dans le texte ?'''
-
-q4 = '''en te servant du texte et des reponses précédentes, explique clairement ce qu'est l'apprentissage supervisé ?'''
