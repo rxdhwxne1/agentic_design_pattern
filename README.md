@@ -61,7 +61,7 @@ source env/bin/activate  # For macOS/Linux
 pip install -r requirements.txt
 ```
 
-Install and configure Ollama: Ollama is used to manage text generation models (LLMs) like Llama 3.2. Ensure that Ollama is installed: Download and install Ollama from Ollama.com.
+Install and configure Ollama: Ollama is used to manage text generation models (LLMs) like Llama 3.2. Ensure that Ollama is installed: Download and install Ollama from https://ollama.com.
 
 ## Usage
 
