@@ -75,9 +75,3 @@ This will start the Streamlit server and open the application in your web browse
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request to propose changes.
-
-
-Points to Customize:
-Ensure that the links and commands match your configuration.
-Add additional sections or details as needed, based on your project and audience.
-Verify that the file and directory names in the **Usage** section are correct.
