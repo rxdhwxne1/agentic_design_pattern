@@ -45,7 +45,7 @@ class WeatherChecker:
                 'parameters': {
                     'type': 'object',
                     'properties': {
-                        'city': {  # Changed from 'ville' to 'city' for consistency
+                        'city': {
                             'type': 'string',
                             'description': 'city name'
                         }
@@ -121,13 +121,13 @@ class Agent:
             tool_name = tool_call.get("name")
             args = tool_call.get("arguments")
             tool_method = tool_method_name(tool_name)
-            total_response = self.use_tool(tool_name, tool_method, **args)  # Changed to unpack args
+            total_response = self.use_tool(tool_name, tool_method, **args)
             return total_response
         return "No tool call found"
 
     def use_tool(self, tool_name, tool_method, **kwargs):
         if tool_name in self.tools and hasattr(self.tools[tool_name], tool_method):
-            return getattr(self.tools[tool_name], tool_method)(**kwargs)  # Changed to unpack kwargs
+            return getattr(self.tools[tool_name], tool_method)(**kwargs)
         return "Invalid tool or method"
 
 
