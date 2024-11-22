@@ -47,7 +47,7 @@ git clone https://github.com/rxdhwxne1/agentic_design_pattern.git
 cd agentic_design_pattern
 ```
 
-### Create a virtual environment (optional):
+### Create a virtual environment (mandatory):
 
 ```bash
 python -m venv env
@@ -62,6 +62,10 @@ pip install -r requirements.txt
 ```
 
 Install and configure Ollama: Ollama is used to manage text generation models (LLMs) like Llama 3.2. Ensure that Ollama is installed: Download and install Ollama from https://ollama.com.
+
+```bash
+ollama run llama3.2
+```
 
 ## Usage
 
